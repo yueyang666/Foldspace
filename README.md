@@ -11,6 +11,17 @@
 - **輕巧**：單一 exe、免安裝，常駐在系統匣，以顏色顯示連線狀態。平常不需要系統管理員權限，只有設定或移除防火牆規則時會跳出 UAC。
 - **三種語言**：英文、繁體中文、簡體中文，跟隨 Windows 顯示語言。
 
+## 畫面
+
+<p>
+  <img src="docs/images/settings-general.zh-Hant.png" alt="設定視窗：已連線到對方電腦" width="380">
+  <img src="docs/images/pair-code.zh-Hant.png" alt="配對時兩邊比對 6 位數配對碼" width="400">
+</p>
+<p>
+  <img src="docs/images/transfer.zh-Hant.png" alt="傳輸進度" width="400">
+  <img src="docs/images/toast-received.zh-Hant.png" alt="收到檔案的通知" width="340">
+</p>
+
 ## 系統需求
 
 - Windows 10 21H2 以上或 Windows 11，x64

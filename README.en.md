@@ -11,6 +11,17 @@ Send files between two Windows PCs on the same local network: drag a file or fol
 - **Lightweight**: a single exe with no installer. It sits in the notification area and shows the connection state by color. It doesn't need administrator rights, except for a UAC prompt when it adds or removes its firewall rule.
 - **Three languages**: English, Traditional Chinese and Simplified Chinese, following the Windows display language.
 
+## Screenshots
+
+<p>
+  <img src="docs/images/settings-general.en.png" alt="Settings window, connected to the other PC" width="380">
+  <img src="docs/images/pair-code.en.png" alt="Pairing: both PCs show the same 6-digit code" width="400">
+</p>
+<p>
+  <img src="docs/images/transfer.en.png" alt="Transfer progress" width="400">
+  <img src="docs/images/toast-received.en.png" alt="Notification when files arrive" width="340">
+</p>
+
 ## Requirements
 
 - Windows 10 21H2 or later, or Windows 11, x64
