@@ -253,7 +253,7 @@
     <div class="grid highlights">
       <article class="hl">
         <h3 data-i18n="h1.t">防中間人的配對碼</h3>
-        <p data-i18n-html="h1.d">配對碼不是只拿兩邊的憑證指紋算出來。發起端先送出亂數的<em>承諾</em>，等對方公開自己的亂數後才揭曉，攻擊者沒辦法事先湊出相同的 6 位數字。</p>
+        <p data-i18n-html="h1.d">配對碼不是只拿兩邊的憑證指紋算出來。發起端先送出亂數的承諾，等對方公開自己的亂數後才揭曉，攻擊者沒辦法事先湊出相同的 6 位數字。</p>
         <code>code = SHA-256(fpA ‖ fpB ‖ Na ‖ Nb) → 6 digits</code>
       </article>
       <article class="hl">
@@ -290,7 +290,7 @@
       <summary data-i18n="g1.t">安裝與第一次啟動</summary>
       <ol>
         <li data-i18n-html="g1.1">在兩台電腦各下載一份 <code>Foldspace-&lt;版本&gt;-win-x64.exe</code>，放在你想放的資料夾，直接執行，不需要安裝。</li>
-        <li data-i18n="g1.2">exe 沒有程式碼簽章，Windows 可能顯示「Windows 已保護您的電腦」。按「其他資訊」→「仍要執行」。</li>
+        <li data-i18n="g1.2">exe 還沒有程式碼簽章，所以會有兩道提醒。用 Edge 下載時，下載清單會顯示「不常下載」：按「⋯」→「保留」，再按「刪除」旁的箭頭 →「仍要保留」。第一次執行時，Windows 會顯示「Windows 已保護您的電腦」：按「其他資訊」→「仍要執行」。</li>
         <li data-i18n="g1.3">第一次啟動會跳出 UAC。允許後，Foldspace 會在 Windows 防火牆加上規則：只允許同一個子網路的電腦連入，私人與公用網路都適用。</li>
         <li data-i18n="g1.4">桌面會出現「Foldspace」捷徑，右下角系統匣會有 Foldspace 圖示，圖示左下角的圓點代表連線狀態。</li>
       </ol>
@@ -347,7 +347,7 @@
 
     <details class="guide">
       <summary data-i18n="g6.t">解除安裝</summary>
-      <p data-i18n="g6.d">從「設定 &gt; 應用程式」，或在開始功能表的「Foldspace」上按右鍵選「解除安裝」。程式、設定、配對資料、日誌、捷徑都會移除，接收資料夾裡的檔案會保留。移除防火牆規則需要系統管理員權限，會跳出 UAC。</p>
+      <p data-i18n="g6.d">從「設定 &gt; 應用程式」，或在開始功能表的「Foldspace」上按右鍵選「解除安裝」。程式、設定、配對資料、日誌、捷徑都會移除，包括你執行的那個 exe 檔（例如放在「下載」裡的那份）；接收資料夾裡的檔案會保留。移除防火牆規則需要系統管理員權限，會跳出 UAC。</p>
     </details>
   </div>
 </section>

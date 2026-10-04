@@ -256,7 +256,6 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.4; font-weight: 600; }
 @media (max-width: 600px) { .highlights { grid-template-columns: 1fr; } }
 .hl { padding: 22px 24px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); }
 .hl p { margin: 0; color: var(--muted); font-size: 15px; }
-.hl em { font-style: normal; color: var(--accent); font-weight: 600; }
 .hl code { display: block; margin-top: 14px; padding: 8px 12px; border-radius: 3px; background: var(--bg-alt); border: 1px solid var(--border); color: var(--text); font-size: 12.5px; overflow-x: auto; white-space: nowrap; }
 
 /* ---------- Guide (Win11 expander) ---------- */
