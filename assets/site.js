@@ -14,6 +14,7 @@
     "nav.design": "Design",
     "nav.guide": "Guide",
     "nav.download": "Download",
+    "nav.support": "Support",
     "hero.eyebrow": "File transfer for Windows on your local network",
     "hero.title": "Drop it in the folder.<br>It lands on the other PC.",
     "hero.lead": "Foldspace opens a permanent door between two Windows PCs. Pair them once, then drag a file or folder onto “Foldspace” on your desktop and it shows up, complete, in the other PC's receive folder — nobody has to click anything on the other side.",
@@ -52,11 +53,16 @@
     "screens.kicker": "Screenshots",
     "screens.title": "Just the Windows you know",
     "screens.lead": "Settings, pairing and transfers are built from standard Windows controls, so everything works the way system tools do.",
-    "shot.general": "Settings: connection status at a glance",
-    "shot.discovery": "Choose the PC to pair with",
-    "shot.code": "Compare the 6-digit pairing code",
+    "shot.general": "Settings",
+    "shot.general.d": "See at a glance whether you're connected; the everyday options are here too.",
+    "shot.discovery": "Find the other PC",
+    "shot.discovery.d": "PCs on your network running Foldspace are listed automatically. Just pick one.",
+    "shot.code": "Compare the code",
+    "shot.code.d": "Both PCs show the same 6 digits. Confirm they match and you're paired.",
     "shot.transfer": "Transfer progress",
-    "shot.toast": "Notification when files arrive",
+    "shot.transfer.d": "Shows the speed and time left, and you can cancel at any time.",
+    "shot.toast": "Notification",
+    "shot.toast.d": "When everything has arrived, a Windows notification lets you know.",
 
     "design.kicker": "Design highlights",
     "design.title": "Simple on the outside, careful on the inside",
@@ -121,6 +127,10 @@
     "dl.title": "Download Foldspace",
     "dl.meta": "Windows 10 21H2 or later / Windows 11 · x64 · single exe",
     "dl.all": "All releases and notes →",
+    "support.t": "Support Foldspace",
+    "support.d": "If Foldspace saves you time, you're welcome to buy me a coffee on Ko-fi.",
+    "support.btn": "Support on Ko-fi",
+    "support.open": "Can't see the payment form? Open it on Ko-fi ↗",
     "dl.verify.t": "Verify the download",
     "dl.verify.d": "Every release comes with a .sha256 file. Run this in PowerShell and compare the result with the value in the .sha256 file:",
     "privacy.t": "Privacy",
@@ -211,24 +221,93 @@
     if (cmd) cmd.textContent = `Get-FileHash .\\${release.name} -Algorithm SHA256`;
   }
 
-  // ---------- Screenshots: images/<shot>.<lang>.png; the section stays hidden until one loads ----------
+  // ---------- Screenshots: images/<shot>.<lang>.png, shown one at a time on the stage ----------
+  // The section stays hidden until at least one screenshot loads; tabs whose image is missing are hidden.
+  const shotUrls = {};
+  let currentShot = null;
+
+  function showShot(name, focus) {
+    const tab = document.getElementById(`tab-${name}`);
+    const img = document.querySelector(".sc-img");
+    if (!tab || !img || !shotUrls[name]) return;
+    currentShot = name;
+    $$(".sc-tab").forEach((t) => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+    });
+    const stage = document.getElementById("sc-stage");
+    stage.setAttribute("aria-labelledby", tab.id);
+    stage.dataset.shot = name;
+    img.classList.remove("in");
+    img.src = shotUrls[name];
+    img.alt = tab.querySelector(".sc-t").textContent;
+    // Restart the fade-in on every switch.
+    void img.offsetWidth;
+    img.classList.add("in");
+    if (focus) tab.focus();
+  }
+
   function loadScreenshots() {
     const section = document.getElementById("screens");
     if (!section) return;
-    $$(".shot").forEach((fig) => {
-      const img = fig.querySelector("img");
-      const name = fig.dataset.shot;
-      fig.hidden = true;
-      img.onload = () => { fig.hidden = false; section.hidden = false; };
-      img.onerror = () => {
-        // Fall back to the other language's screenshot before giving up.
-        const other = lang === "en" ? "zh-Hant" : "en";
-        if (!img.dataset.fallback) { img.dataset.fallback = "1"; img.src = `images/${name}.${other}.png`; }
+    const other = lang === "en" ? "zh-Hant" : "en";
+    const wanted = currentShot || $$(".sc-tab")[0]?.dataset.shot;
+    let wantedMissing = false;
+    currentShot = null;
+    $$(".sc-tab").forEach((tab) => {
+      const name = tab.dataset.shot;
+      tab.hidden = true;
+      delete shotUrls[name];
+      const probe = new Image();
+      probe.onload = () => {
+        shotUrls[name] = probe.src;
+        tab.hidden = false;
+        section.hidden = false;
+        // Keep the current tab (refreshed in the new language), or start on the first one.
+        if (name === wanted) showShot(name);
+        else if (wantedMissing && !currentShot) showShot(name);
       };
-      delete img.dataset.fallback;
-      img.alt = fig.querySelector("figcaption")?.textContent || "";
-      img.src = `images/${name}.${lang}.png`;
+      // Fall back to the other language's screenshot before giving up.
+      probe.onerror = () => {
+        if (!probe.dataset.fallback) { probe.dataset.fallback = "1"; probe.src = `images/${name}.${other}.png`; return; }
+        if (name !== wanted) return;
+        wantedMissing = true;
+        const loaded = $$(".sc-tab").find((t) => shotUrls[t.dataset.shot]);
+        if (loaded) showShot(loaded.dataset.shot);
+      };
+      probe.src = `images/${name}.${lang}.png`;
     });
+  }
+
+  $$(".sc-tab").forEach((tab) => tab.addEventListener("click", () => showShot(tab.dataset.shot)));
+  document.querySelector(".sc-tabs")?.addEventListener("keydown", (e) => {
+    const keys = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+    if (!(e.key in keys)) return;
+    e.preventDefault();
+    const tabs = $$(".sc-tab").filter((t) => !t.hidden);
+    const i = tabs.findIndex((t) => t.dataset.shot === currentShot);
+    const next = tabs[(i + keys[e.key] + tabs.length) % tabs.length];
+    if (next) showShot(next.dataset.shot, true);
+  });
+
+  // ---------- Ko-fi: open the donation panel in a dialog; Ko-fi is only contacted after a click ----------
+  const KOFI_EMBED = "https://ko-fi.com/yueyang666/?hidefeed=true&widget=true&embed=true";
+  const kofiDialog = document.getElementById("kofi-dialog");
+  if (kofiDialog && typeof kofiDialog.showModal === "function") {
+    const frame = kofiDialog.querySelector(".kofi-frame");
+    $$(".js-kofi").forEach((a) => a.addEventListener("click", (e) => {
+      // Let modified clicks (new tab/window) behave like a normal link.
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      // Ko-fi's panel needs about 440px; on phones open the Ko-fi page itself.
+      if (window.innerWidth < 480) return;
+      e.preventDefault();
+      if (!frame.src) frame.src = KOFI_EMBED;
+      kofiDialog.showModal();
+    }));
+    kofiDialog.querySelector("[data-close]").addEventListener("click", () => kofiDialog.close());
+    // Clicking the backdrop closes the dialog.
+    kofiDialog.addEventListener("click", (e) => { if (e.target === kofiDialog) kofiDialog.close(); });
   }
 
   applyLanguage();
