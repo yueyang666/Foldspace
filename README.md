@@ -1,6 +1,6 @@
 # Foldspace
 
-[English](README.en.md)
+[English](README.en.md) · [官方網站](https://yueyang666.github.io/Foldspace/)
 
 在同一個區域網路裡的兩台 Windows 電腦之間傳檔案：把檔案或資料夾拖到桌面上的「Foldspace」，就會出現在另一台電腦的接收資料夾。
 

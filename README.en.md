@@ -1,6 +1,6 @@
 # Foldspace
 
-[繁體中文](README.md)
+[繁體中文](README.md) · [Website](https://yueyang666.github.io/Foldspace/)
 
 Send files between two Windows PCs on the same local network: drag a file or folder onto "Foldspace" on your desktop, and it shows up in the receive folder on the other PC.
 
