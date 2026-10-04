@@ -128,7 +128,10 @@
     "dl.meta": "Windows 10 21H2 or later / Windows 11 · x64 · single exe",
     "dl.all": "All releases and notes →",
     "support.t": "Support Foldspace",
-    "support.d": "If Foldspace saves you time, you're welcome to buy me a coffee on Ko-fi.",
+    "support.card.t": "Support Foldspace's development",
+    "support.d": "Foldspace will always be free and open source. If you like it, your support helps make the Windows release more complete and more trustworthy, and brings Foldspace to more operating systems in the future.",
+    "support.intro": "Your support makes the Windows release more complete and more trustworthy, and helps bring Foldspace to more operating systems. Thank you!",
+    "nav.support.title": "Support Foldspace's development",
     "support.btn": "Support on Ko-fi",
     "support.open": "Can't see the payment form? Open it on Ko-fi ↗",
     "dl.verify.t": "Verify the download",
@@ -141,9 +144,11 @@
   const $$ = (sel) => Array.from(document.querySelectorAll(sel));
   const textEls = $$("[data-i18n]");
   const htmlEls = $$("[data-i18n-html]");
+  const titleEls = $$("[data-i18n-title]");
   // Keep the original 繁體中文 so we can switch back without reloading.
   textEls.forEach((el) => { el.dataset.zh = el.textContent; });
   htmlEls.forEach((el) => { el.dataset.zh = el.innerHTML; });
+  titleEls.forEach((el) => { el.dataset.zhTitle = el.title; });
   const zhTitle = document.title;
   const metaDesc = document.querySelector('meta[name="description"]');
   const zhDesc = metaDesc ? metaDesc.content : "";
@@ -172,6 +177,10 @@
     htmlEls.forEach((el) => {
       const key = el.dataset.i18nHtml;
       el.innerHTML = en && EN[key] !== undefined ? EN[key] : el.dataset.zh;
+    });
+    titleEls.forEach((el) => {
+      const key = el.dataset.i18nTitle;
+      el.title = en && EN[key] !== undefined ? EN[key] : el.dataset.zhTitle;
     });
     document.title = en ? EN.title : zhTitle;
     if (metaDesc) metaDesc.content = en ? EN.description : zhDesc;
