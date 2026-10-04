@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foldspace — 拖進資料夾，就到另一台電腦</title>
+<meta name="description" content="Foldspace 在兩台 Windows 電腦之間開一扇常駐的門：配對一次之後，把檔案拖到桌面的「Foldspace」，就會完整出現在對方的接收資料夾。">
+<meta property="og:title" content="Foldspace">
+<meta property="og:description" content="拖進資料夾，就到另一台電腦。兩台 Windows 電腦之間的區域網路檔案傳送。">
+<meta property="og:image" content="assets/foldspace.svg">
+<meta name="theme-color" content="#F3F6FB">
+<link rel="icon" href="assets/foldspace.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="skip">跳到主要內容</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/foldspace.svg" alt="" width="28" height="28"><span>Foldspace</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#features" data-i18n="nav.features">特色</a>
+      <a href="#design" data-i18n="nav.design">設計亮點</a>
+      <a href="#guide" data-i18n="nav.guide">使用說明</a>
+      <a href="#download" data-i18n="nav.download">下載</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang" type="button" id="lang-toggle" aria-label="Switch language">EN</button>
+      <a class="icon-link" href="https://github.com/yueyang666/Foldspace" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+    <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Windows 區域網路檔案傳送</p>
+      <h1 data-i18n-html="hero.title">拖進資料夾，<br>就到另一台電腦。</h1>
+      <p class="lead" data-i18n="hero.lead">Foldspace 在兩台 Windows 電腦之間開一扇常駐的門。配對一次之後，把檔案或資料夾拖到桌面上的「Foldspace」，它就會完整出現在對方的接收資料夾，對方不用做任何操作。</p>
+      <div class="cta">
+        <a class="btn btn-primary js-download" href="https://github.com/yueyang666/Foldspace/releases/latest">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4L11 13.6V4a1 1 0 011-1zM5 19a1 1 0 100 2h14a1 1 0 100-2H5z"/></svg>
+          <span data-i18n="cta.download">下載 Windows 版</span>
+        </a>
+        <a class="btn btn-ghost" href="#guide" data-i18n="cta.guide">使用說明</a>
+      </div>
+      <p class="fine js-release-line" data-i18n="hero.fine">Windows 10 21H2 以上／Windows 11 · x64 · 免安裝</p>
+    </div>
+
+    <div class="demo" aria-hidden="true">
+      <div class="pc pc-left">
+        <div class="pc-bar"><img src="assets/foldspace.svg" alt="" width="14" height="14"><b data-i18n="demo.this">這台電腦</b><i class="win-ctrl" aria-hidden="true"><svg viewBox="0 0 30 10" width="30" height="10"><path d="M1 5h6" stroke="currentColor"/><rect x="12.5" y="1.5" width="6" height="6" rx="1" fill="none" stroke="currentColor"/><path d="M24 2l5 5M29 2l-5 5" stroke="currentColor"/></svg></i></div>
+        <div class="pc-desk">
+          <div class="desk-icon">
+            <img src="assets/foldspace.svg" alt="" width="64" height="64">
+            <small>Foldspace</small>
+          </div>
+          <div class="file-chip"><span class="file-glyph"></span><span data-i18n="demo.file">旅行照片</span></div>
+        </div>
+      </div>
+      <div class="beam">
+        <span class="beam-dot"></span>
+        <span class="beam-label">TLS</span>
+      </div>
+      <div class="pc pc-right">
+        <div class="pc-bar"><span class="explorer-glyph"></span><b data-i18n="demo.other">另一台電腦</b><i class="win-ctrl" aria-hidden="true"><svg viewBox="0 0 30 10" width="30" height="10"><path d="M1 5h6" stroke="currentColor"/><rect x="12.5" y="1.5" width="6" height="6" rx="1" fill="none" stroke="currentColor"/><path d="M24 2l5 5M29 2l-5 5" stroke="currentColor"/></svg></i></div>
+        <div class="pc-list">
+          <div class="pc-path">Downloads\Foldspace</div>
+          <div class="row row-old"><span class="file-glyph small"></span>report.pdf</div>
+          <div class="row row-new"><span class="file-glyph small"></span><span data-i18n="demo.file">旅行照片</span><i class="check">✓</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Features ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <p class="kicker" data-i18n="features.kicker">為什麼用 Foldspace</p>
+    <h2 data-i18n="features.title">把兩台電腦，用一個資料夾接起來</h2>
+    <p class="section-lead" data-i18n="features.lead">適合自己的桌機和筆電，或辦公室裡每天互丟檔案的兩台固定電腦。</p>
+    <div class="grid features">
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 015.5 5H9l2 2h7.5A2.5 2.5 0 0121 9.5v7a2.5 2.5 0 01-2.5 2.5h-13A2.5 2.5 0 013 16.5z"/><path d="M12 10.5v5M9.5 13l2.5 2.5 2.5-2.5"/></svg></div>
+        <h3 data-i18n="f1.t">像資料夾一樣用</h3>
+        <p data-i18n="f1.d">桌面上的「Foldspace」看起來就是一般資料夾，拖進去就送出，資料夾結構完整保留。</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/><path d="M8.5 11a2.5 2.5 0 012.5-2.5"/></svg></div>
+        <h3 data-i18n="f2.t">自動找到對方</h3>
+        <p data-i18n="f2.d">按「配對…」就會列出同網段開著 Foldspace 的電腦。對方換了 IP，也會用設備指紋自動找回來。</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.66 0l3-3a4 4 0 00-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 00-5.66 0l-3 3a4 4 0 005.66 5.66l1-1"/></svg></div>
+        <h3 data-i18n="f3.t">配對一次就好</h3>
+        <p data-i18n="f3.d">兩邊顯示同一組 6 位數字，確認後就記住彼此。之後只認對方的設備憑證，別台電腦冒充不了。</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9.5" rx="2.2"/><path d="M8.5 11V8a3.5 3.5 0 017 0v3"/><path d="M12 15v2"/></svg></div>
+        <h3 data-i18n="f4.t">預設加密</h3>
+        <p data-i18n="f4.d">控制連線一律走 TLS 與雙向憑證；檔案內容預設也加密，需要速度時可以關閉。</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.2c0 4.3-2.9 7.9-7 9.3-4.1-1.4-7-5-7-9.3V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></div>
+        <h3 data-i18n="f5.t">不會留下壞檔</h3>
+        <p data-i18n="f5.d">每個檔案都驗證雜湊，不符就自動重傳。中途斷線或取消，接收資料夾裡也不會出現半個檔案。</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M3 9h18"/><path d="M6 6.8h.01M8.5 6.8h.01"/><path d="M8 14h8"/></svg></div>
+        <h3 data-i18n="f6.t">輕巧、原生</h3>
+        <p data-i18n="f6.d">單一 exe、免安裝，常駐系統匣。介面用 Windows 原生元件，支援繁體中文、簡體中文與英文。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ How it works ============ -->
+<section class="section alt" id="how">
+  <div class="wrap">
+    <p class="kicker" data-i18n="how.kicker">三個步驟</p>
+    <h2 data-i18n="how.title">第一次設定只要一分鐘</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-no">1</span>
+        <h3 data-i18n="s1.t">兩台各放一份</h3>
+        <p data-i18n="s1.d">下載 Foldspace.exe，放在兩台電腦上執行。第一次會在桌面建立「Foldspace」，並請你允許防火牆規則。</p>
+      </li>
+      <li>
+        <span class="step-no">2</span>
+        <h3 data-i18n="s2.t">配對</h3>
+        <p data-i18n="s2.d">在其中一台按「配對…」，從清單選對方。兩邊確認顯示的 6 位數字相同，就完成了。</p>
+      </li>
+      <li>
+        <span class="step-no">3</span>
+        <h3 data-i18n="s3.t">拖放</h3>
+        <p data-i18n="s3.d">把檔案或資料夾拖到桌面的「Foldspace」。收到的檔案會出現在對方的「下載\Foldspace」。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ Screenshots (hidden until images exist) ============ -->
+<section class="section" id="screens" hidden>
+  <div class="wrap">
+    <p class="kicker" data-i18n="screens.kicker">畫面</p>
+    <h2 data-i18n="screens.title">就是你熟悉的 Windows</h2>
+    <p class="section-lead" data-i18n="screens.lead">設定視窗、配對與傳輸畫面，都用 Windows 內建的元件，跟系統工具一樣好上手。</p>
+    <div class="shots">
+      <figure class="shot" data-shot="settings-general"><img alt="" loading="lazy"><figcaption data-i18n="shot.general">設定視窗：連線狀態一目了然</figcaption></figure>
+      <figure class="shot" data-shot="pair-discovery"><img alt="" loading="lazy"><figcaption data-i18n="shot.discovery">選擇要配對的電腦</figcaption></figure>
+      <figure class="shot" data-shot="pair-code"><img alt="" loading="lazy"><figcaption data-i18n="shot.code">兩邊比對 6 位數配對碼</figcaption></figure>
+      <figure class="shot" data-shot="transfer"><img alt="" loading="lazy"><figcaption data-i18n="shot.transfer">傳輸進度</figcaption></figure>
+      <figure class="shot" data-shot="toast-received"><img alt="" loading="lazy"><figcaption data-i18n="shot.toast">收到檔案的通知</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Design highlights ============ -->
+<section class="section tint" id="design">
+  <div class="wrap">
+    <p class="kicker" data-i18n="design.kicker">設計亮點</p>
+    <h2 data-i18n="design.title">簡單的外表，認真的內在</h2>
+    <p class="section-lead" data-i18n="design.lead">Foldspace 只做一件事，所以每個細節都可以做到位。</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 760 250" role="img" aria-labelledby="diag-title">
+        <title id="diag-title">Foldspace connections</title>
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--diagram-line)"/></marker>
+          <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker>
+        </defs>
+        <g class="d-box"><rect x="20" y="55" width="190" height="140" rx="4"/><image href="assets/foldspace.svg" x="91" y="72" width="48" height="48"/><text x="115" y="146" text-anchor="middle" class="d-name" data-i18n="d.a">電腦 A</text><text x="115" y="170" text-anchor="middle" class="d-sub">Foldspace</text></g>
+        <g class="d-box"><rect x="550" y="55" width="190" height="140" rx="4"/><image href="assets/foldspace.svg" x="621" y="72" width="48" height="48"/><text x="645" y="146" text-anchor="middle" class="d-name" data-i18n="d.b">電腦 B</text><text x="645" y="170" text-anchor="middle" class="d-sub">Foldspace</text></g>
+        <path d="M215 80 H545" class="d-line dashed" marker-start="url(#arr)" marker-end="url(#arr)"/>
+        <text x="380" y="70" text-anchor="middle" class="d-label" data-i18n="d.udp">UDP 52500 · 同網段搜尋</text>
+        <path d="M215 125 H545" class="d-line" marker-start="url(#arr)" marker-end="url(#arr)"/>
+        <text x="380" y="115" text-anchor="middle" class="d-label" data-i18n="d.ctrl">控制通道 · TLS 雙向憑證 · 心跳與配對</text>
+        <path d="M215 170 H545" class="d-line thick" marker-start="url(#arr-amber)" marker-end="url(#arr-amber)"/>
+        <text x="380" y="160" text-anchor="middle" class="d-label" data-i18n="d.data">資料通道 · 每個傳輸一條、雙向皆可 · 預設加密</text>
+        <text x="380" y="228" text-anchor="middle" class="d-foot" data-i18n="d.foot">只用一個 TCP port（52500）與同 port 的 UDP 搜尋，防火牆只開放同一個子網路</text>
+      </svg>
+      <ul class="diagram-mobile">
+        <li class="dm-udp" data-i18n="d.udp">UDP 52500 · 同網段搜尋</li>
+        <li class="dm-ctrl" data-i18n="d.ctrl">控制通道 · TLS 雙向憑證 · 心跳與配對</li>
+        <li class="dm-data" data-i18n="d.data">資料通道 · 每個傳輸一條、雙向皆可 · 預設加密</li>
+        <li class="dm-foot" data-i18n="d.foot">只用一個 TCP port（52500）與同 port 的 UDP 搜尋，防火牆只開放同一個子網路</li>
+      </ul>
+    </figure>
+
+    <div class="grid highlights">
+      <article class="hl">
+        <h3 data-i18n="h1.t">防中間人的配對碼</h3>
+        <p data-i18n-html="h1.d">配對碼不是只拿兩邊的憑證指紋算出來。發起端先送出亂數的<em>承諾</em>，等對方公開自己的亂數後才揭曉，攻擊者沒辦法事先湊出相同的 6 位數字。</p>
+        <code>code = SHA-256(fpA ‖ fpB ‖ Na ‖ Nb) → 6 digits</code>
+      </article>
+      <article class="hl">
+        <h3 data-i18n="h2.t">接收資料夾裡只有完整的檔案</h3>
+        <p data-i18n="h2.d">檔案先寫進隱藏的暫存區，每個檔案收完就用 XxHash3 比對，不符就在同一條連線重傳一次。全部驗證通過才搬進接收資料夾，並保留修改時間。</p>
+      </article>
+      <article class="hl">
+        <h3 data-i18n="h3.t">為吞吐量設計</h3>
+        <p data-i18n="h3.d">檔案分段串流，檔案之間不等回應；小檔案並行讀寫，讀網路和寫磁碟分開進行。傳 5 GB 的檔案時，程式本身占用的記憶體約 100 MB。</p>
+      </article>
+      <article class="hl">
+        <h3 data-i18n="h4.t">只信任配對過的設備</h3>
+        <p data-i18n="h4.d">配對後只認對方的憑證指紋，IP 變了也不影響。還沒配對時只接受配對請求，拒絕一切傳輸；防火牆規則只開放同一個子網路。</p>
+      </article>
+      <article class="hl">
+        <h3 data-i18n="h5.t">兩台說不同語言也沒問題</h3>
+        <p data-i18n="h5.d">網路上只傳狀態代碼，不傳文字。英文介面的電腦和中文介面的電腦互傳時，各自用自己的語言顯示訊息。</p>
+      </article>
+      <article class="hl">
+        <h3 data-i18n="h6.t">斷線、取消都有交代</h3>
+        <p data-i18n="h6.d">每 5 秒心跳，15 秒沒回應就判定離線並自動重連。主動取消顯示「已取消」，斷線或磁碟寫滿顯示「失敗」，不會混在一起。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Guide ============ -->
+<section class="section" id="guide">
+  <div class="wrap narrow">
+    <p class="kicker" data-i18n="guide.kicker">使用說明</p>
+    <h2 data-i18n="guide.title">從安裝到傳檔</h2>
+
+    <details class="guide" open>
+      <summary data-i18n="g1.t">安裝與第一次啟動</summary>
+      <ol>
+        <li data-i18n-html="g1.1">在兩台電腦各下載一份 <code>Foldspace-&lt;版本&gt;-win-x64.exe</code>，放在你想放的資料夾，直接執行，不需要安裝。</li>
+        <li data-i18n="g1.2">exe 沒有程式碼簽章，Windows 可能顯示「Windows 已保護您的電腦」。按「其他資訊」→「仍要執行」。</li>
+        <li data-i18n="g1.3">第一次啟動會跳出 UAC。允許後，Foldspace 會在 Windows 防火牆加上規則：只允許同一個子網路的電腦連入，私人與公用網路都適用。</li>
+        <li data-i18n="g1.4">桌面會出現「Foldspace」捷徑，右下角系統匣會有 Foldspace 圖示，圖示左下角的圓點代表連線狀態。</li>
+      </ol>
+    </details>
+
+    <details class="guide">
+      <summary data-i18n="g2.t">配對兩台電腦</summary>
+      <ol>
+        <li data-i18n="g2.1">在其中一台的設定視窗「一般」分頁按「配對…」。</li>
+        <li data-i18n="g2.2">清單會列出同網段開著 Foldspace 的電腦，選擇對方。</li>
+        <li data-i18n="g2.3">兩台會同時跳出配對碼。確認兩邊的 6 位數字相同，各自按「確認」。數字不同請按「拒絕」。</li>
+        <li data-i18n="g2.4">找不到對方時（不同網段，或訪客 Wi-Fi 擋掉了廣播），到「連線」分頁手動輸入對方的 IP。</li>
+      </ol>
+    </details>
+
+    <details class="guide">
+      <summary data-i18n="g3.t">傳送與接收</summary>
+      <ul>
+        <li data-i18n="g3.1">把檔案或資料夾拖到桌面上的「Foldspace」，或拖到設定視窗的「傳送檔案」區。一次要傳很多項目時，建議拖它們的上層資料夾。</li>
+        <li data-i18n="g3.2">傳輸視窗會顯示速度、剩餘時間，可以隨時取消。後拖入的任務會排隊，兩個方向可以同時傳。</li>
+        <li data-i18n="g3.3">收到的檔案預設放在「下載\Foldspace」，完成時會跳出通知，點一下就打開資料夾並選取剛收到的項目。</li>
+        <li data-i18n="g3.4">在「接收」分頁可以設定同名檔案要自動改名、覆蓋或略過，以及接收前要不要先詢問。</li>
+      </ul>
+    </details>
+
+    <details class="guide">
+      <summary data-i18n="g4.t">看懂連線狀態</summary>
+      <table class="states">
+        <tbody>
+          <tr><td><span class="dot green"></span></td><td data-i18n="st.green">已連線：已配對，隨時可以傳檔</td></tr>
+          <tr><td><span class="dot yellow"></span></td><td data-i18n="st.yellow">尋找中：正在連線或重新連線</td></tr>
+          <tr><td><span class="dot orange"></span></td><td data-i18n="st.orange">未配對：找到對方了，但還沒配對（或配對被對方解除）</td></tr>
+          <tr><td><span class="dot red"></span></td><td data-i18n="st.red">離線或錯誤：對方沒有回應、版本不相容、配對金鑰不符等</td></tr>
+          <tr><td><span class="dot gray"></span></td><td data-i18n="st.gray">已停用，或尚未配對任何電腦</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details class="guide">
+      <summary data-i18n="g5.t">常見問題</summary>
+      <dl class="faq">
+        <dt data-i18n="q1">按「配對…」找不到對方？</dt>
+        <dd data-i18n="a1">搜尋靠區域網路廣播，兩台要在同一個子網路。訪客 Wi-Fi 常會隔離用戶端，這時請在「連線」分頁手動輸入對方 IP。</dd>
+        <dt data-i18n="q2">「測試連線」逾時？</dt>
+        <dd data-i18n="a2">通常是對方沒有執行 Foldspace、服務已停用，或防火牆擋住了。可以在「連線」分頁按「允許 Foldspace 通過 Windows 防火牆…」重新設定規則。</dd>
+        <dt data-i18n="q3">傳大量小檔案很慢？</dt>
+        <dd data-i18n="a3">Windows Defender 會逐一掃描每個新寫入的檔案，一萬個小檔案可能慢上數倍。打包成一個壓縮檔再傳會快很多。</dd>
+        <dt data-i18n="q4">顯示「配對金鑰不符」？</dt>
+        <dd data-i18n="a4">對方重灌系統或刪除過設定，設備憑證變了。請在兩邊解除配對後重新配對。</dd>
+        <dt data-i18n="q5">顯示「版本不相容」？</dt>
+        <dd data-i18n="a5">兩台的 Foldspace 版本差太多，請把兩台都更新到最新版，配對會保留。</dd>
+      </dl>
+    </details>
+
+    <details class="guide">
+      <summary data-i18n="g6.t">解除安裝</summary>
+      <p data-i18n="g6.d">從「設定 &gt; 應用程式」，或在開始功能表的「Foldspace」上按右鍵選「解除安裝」。程式、設定、配對資料、日誌、捷徑都會移除，接收資料夾裡的檔案會保留。移除防火牆規則需要系統管理員權限，會跳出 UAC。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ Download ============ -->
+<section class="section alt" id="download">
+  <div class="wrap narrow">
+    <p class="kicker" data-i18n="dl.kicker">下載</p>
+    <h2 data-i18n="dl.title">下載 Foldspace</h2>
+    <div class="dl-card">
+      <img src="assets/foldspace.svg" alt="" width="72" height="72">
+      <div class="dl-body">
+        <h3>Foldspace <span class="js-version"></span></h3>
+        <p class="muted js-dl-meta" data-i18n="dl.meta">Windows 10 21H2 以上／Windows 11 · x64 · 單一 exe</p>
+        <a class="btn btn-primary js-download" href="https://github.com/yueyang666/Foldspace/releases/latest">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 011 1v9.6l3.3-3.3a1 1 0 111.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.4L11 13.6V4a1 1 0 011-1zM5 19a1 1 0 100 2h14a1 1 0 100-2H5z"/></svg>
+          <span data-i18n="cta.download">下載 Windows 版</span>
+        </a>
+        <a class="link" href="https://github.com/yueyang666/Foldspace/releases" data-i18n="dl.all">所有版本與更新說明 →</a>
+      </div>
+    </div>
+
+    <div class="verify">
+      <h3 data-i18n="dl.verify.t">確認檔案完整</h3>
+      <p data-i18n="dl.verify.d">每個版本都附有 .sha256 檔。在 PowerShell 執行下面的指令，把結果和 .sha256 裡的值比對：</p>
+      <pre><code class="js-hash-cmd">Get-FileHash .\Foldspace-1.0.0-win-x64.exe -Algorithm SHA256</code></pre>
+    </div>
+
+    <div class="privacy">
+      <h3 data-i18n="privacy.t">隱私</h3>
+      <p data-i18n="privacy.d">Foldspace 只把檔案傳到你配對的那台電腦，不連到任何伺服器，不收集、也不回傳任何使用資料。設定、配對資料與日誌都只存在你自己的電腦上。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="brand small"><img src="assets/foldspace.svg" alt="" width="22" height="22"><span>Foldspace</span></div>
+    <p>© 2026 yueyang · <a href="https://github.com/yueyang666/Foldspace/issues" data-i18n="footer.issues">回報問題</a></p>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
