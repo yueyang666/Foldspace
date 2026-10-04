@@ -59,6 +59,8 @@ Architecture, protocol, file locations and design decisions are described in [do
 
 Foldspace will always be free and open source. If you like it, your support helps make the Windows release more complete and more trustworthy, and brings Foldspace to more operating systems in the future. You can support it on [Ko-fi](https://ko-fi.com/yueyang666).
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R0V52861LJ)
+
 ## License
 
 Licensed under the [Apache License 2.0](LICENSE). © 2026 yueyang

@@ -59,6 +59,8 @@ dotnet publish src/Foldspace.App -c Release
 
 Foldspace 永遠免費開源。如果你喜歡它，你的贊助可以幫忙讓 Windows 發行版變得更完整、更可信任，並且在未來支援更多作業系統。歡迎在 [Ko-fi](https://ko-fi.com/yueyang666) 支持。
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R0V52861LJ)
+
 ## 授權
 
 以 [Apache License 2.0](LICENSE) 授權。© 2026 yueyang
