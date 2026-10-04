@@ -282,6 +282,8 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.4; font-weight: 600; }
 @media (max-width: 560px) { .dl-card { flex-direction: column; } }
 .dl-body h3 { font-size: 22px; margin-bottom: 4px; }
 .dl-body .muted { margin: 0 0 18px; }
+/* Center the link on the button; with baseline alignment it sat lower. */
+.dl-body .btn, .dl-body .link { vertical-align: middle; }
 .dl-body .link { display: inline-block; margin-left: 16px; color: var(--accent); font-size: 14.5px; text-decoration: none; }
 .dl-body .link:hover { text-decoration: underline; }
 @media (max-width: 560px) { .dl-body .link { display: block; margin: 14px 0 0; } }
