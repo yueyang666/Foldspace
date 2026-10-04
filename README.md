@@ -65,6 +65,6 @@ Foldspace 永遠免費開源。如果你喜歡它，你的贊助可以幫忙讓 
 
 ## 授權
 
-以 [Apache License 2.0](LICENSE) 授權。© 2026 yueyang
+以 [Apache License 2.0](LICENSE) 授權。
 
 使用的第三方元件與其授權見 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。

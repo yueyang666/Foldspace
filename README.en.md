@@ -65,6 +65,6 @@ Foldspace will always be free and open source. If you like it, your support help
 
 ## License
 
-Licensed under the [Apache License 2.0](LICENSE). © 2026 yueyang
+Licensed under the [Apache License 2.0](LICENSE).
 
 Third-party components and their licenses are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
