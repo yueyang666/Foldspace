@@ -85,9 +85,10 @@ public class ConnectionTests
         Assert.True(outcome.Success, outcome.Result.ToString());
         Assert.Equal(2, codes.Count);
         Assert.Equal(codes[0], codes[1]);
+        // 發起端收到對方的確認就結束，對方可能還沒處理完本機的確認：等兩邊都連上再檢查
+        await peers.WaitConnected();
         Assert.Equal(peers.B.Identity.Fingerprint, peers.A.Pairing.PeerFingerprint);
         Assert.Equal(peers.A.Identity.Fingerprint, peers.B.Pairing.PeerFingerprint);
-        await peers.WaitConnected();
     }
 
     [Fact]

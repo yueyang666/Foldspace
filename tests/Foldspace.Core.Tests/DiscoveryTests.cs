@@ -97,7 +97,7 @@ public class DiscoveryTests
         await a.Service.StartAsync();
         await TestUtil.WaitUntil(() => a.Service.Status.State == PeerState.Unpaired, because: "A 連上 B");
         Assert.True((await a.Service.PairAsync()).Success);
-        await TestUtil.WaitUntil(() => a.Service.Status.State == PeerState.Connected, because: "配對完成");
+        await TestUtil.WaitUntil(() => a.Service.Status.State == PeerState.Connected && b.Service.Status.State == PeerState.Connected, because: "雙方都配對完成");
 
         // B「換了 IP」：同一個身分與配對，改在新的 port 執行。
         await b.Service.StopAsync();
