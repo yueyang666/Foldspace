@@ -55,6 +55,10 @@ dotnet publish src/Foldspace.App -c Release
 
 程式架構、協定、檔案位置與設計決策見 [docs/design.md](docs/design.md)。
 
+## 支持
+
+Foldspace 永遠免費開源。如果你喜歡它，你的贊助可以幫忙讓 Windows 發行版變得更完整、更可信任，並且在未來支援更多作業系統。歡迎在 [Ko-fi](https://ko-fi.com/yueyang666) 支持。
+
 ## 授權
 
 以 [Apache License 2.0](LICENSE) 授權。© 2026 yueyang

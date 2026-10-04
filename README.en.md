@@ -55,6 +55,10 @@ The single-file exe is written to `src/Foldspace.App/bin/Release/net10.0-windows
 
 Architecture, protocol, file locations and design decisions are described in [docs/design.md](docs/design.md) (Traditional Chinese). Code comments are also in Traditional Chinese.
 
+## Support
+
+Foldspace will always be free and open source. If you like it, your support helps make the Windows release more complete and more trustworthy, and brings Foldspace to more operating systems in the future. You can support it on [Ko-fi](https://ko-fi.com/yueyang666).
+
 ## License
 
 Licensed under the [Apache License 2.0](LICENSE). © 2026 yueyang
