@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- Toast 通知套件需要 Windows SDK 版本的 TFM。支援 Win10 21H2（19044）以上，19041 是不超過它的最近 SDK 版本。 -->
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+    <!-- 介面全部用 WinForms：控制項就是 Windows 原生控制項，外觀與系統內建工具一致，也比 WPF 輕。 -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <!-- 讓 macOS / Linux 也能編譯（無法執行）。 -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <AssemblyName>Foldspace</AssemblyName>
+    <!-- exe「內容 > 詳細資料」的「檔案描述」 -->
+    <AssemblyTitle>Foldspace</AssemblyTitle>
+    <Description>把檔案拖到桌面的「Foldspace」，傳送到同網段的另一台電腦。</Description>
+    <RootNamespace>Foldspace.App</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- exe 檔案圖示（Assets/Foldspace.svg 算圖成多尺寸）；桌面捷徑仍用系統資料夾圖示。 -->
+    <ApplicationIcon>Assets\Foldspace.ico</ApplicationIcon>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <!-- dotnet publish -c Release：單一 exe、內含 runtime、免安裝。WinForms 不支援 trimming。 -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 同一個圖示也給系統匣與視窗用 -->
+    <EmbeddedResource Include="Assets\Foldspace.ico" LogicalName="Foldspace.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Foldspace.Core\Foldspace.Core.csproj" />
+    <ProjectReference Include="..\Foldspace.Localization\Foldspace.Localization.csproj" />
+  </ItemGroup>
+
+</Project>

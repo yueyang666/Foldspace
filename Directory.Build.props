@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--
+      產品版本（SemVer）：GitHub Release 標籤（v1.0.0）、發佈檔名、exe 的「產品版本」、設定視窗、
+      兩台握手時交換的版本。只在正式發佈時才改（在 GitHub Actions 手動執行 Release）。
+      測試建置以「產品版本+建置編號」區分（例如 1.0.0+202610041530 或 1.0.0+a3f9c2e），
+      建置編號由建置腳本以 SourceRevisionId 帶入；在 git 裡建置時 SDK 會自動填入提交編號。
+    -->
+    <FoldspaceVersion>1.0.0</FoldspaceVersion>
+
+    <Version>$(FoldspaceVersion)</Version>
+    <InformationalVersion>$(FoldspaceVersion)</InformationalVersion>
+    <!-- 不填公司：不設定時 SDK 會用組件名稱代替，所以直接不產生這個屬性。 -->
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <Product>Foldspace</Product>
+    <Copyright>© 2026 yueyang</Copyright>
+  </PropertyGroup>
+</Project>

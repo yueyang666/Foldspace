@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- 介面文字（英文、繁中、簡中）。不綁 Windows，讓測試能檢查每個狀態代碼在三種語言都有翻譯。 -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Foldspace.Localization</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Foldspace.Core\Foldspace.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Foldspace.Core.Tests" />
+  </ItemGroup>
+
+</Project>

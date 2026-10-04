@@ -1,0 +1,56 @@
+# 正式發佈：在 GitHub 的 Actions 頁面選「Release」→「Run workflow」手動執行。
+# 讀取 Directory.Build.props 的 FoldspaceVersion（例如 1.0.0），測試、建置單一 exe，
+# 在目前的提交打上 v1.0.0 標籤並建立 GitHub Release（附 exe 與 SHA-256）。
+# 這個版本已經發佈過就直接失敗：要發新版，先把 FoldspaceVersion 加 1 並提交。
+name: Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Read the product version
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (dotnet msbuild src/Foldspace.App -getProperty:FoldspaceVersion).Trim()
+          if ($version -notmatch '^\d+\.\d+\.\d+$') { throw "FoldspaceVersion '$version' is not MAJOR.MINOR.PATCH" }
+          gh release view "v$version" *> $null
+          if ($LASTEXITCODE -eq 0) { throw "v$version has already been released. Bump FoldspaceVersion first." }
+          $global:LASTEXITCODE = 0
+          "VERSION=$version" >> $env:GITHUB_ENV
+
+      - name: Test
+        run: dotnet test tests/Foldspace.Core.Tests -c Release
+
+      - name: Publish
+        # 正式版的產品版本就是乾淨的 1.0.0，不附加提交編號（標籤已經對應到提交）
+        run: dotnet publish src/Foldspace.App -c Release -o out -p:IncludeSourceRevisionInInformationalVersion=false
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $name = "Foldspace-$env:VERSION-win-x64.exe"
+          Copy-Item out/Foldspace.exe $name
+          $hash = (Get-FileHash $name -Algorithm SHA256).Hash.ToLowerInvariant()
+          Set-Content -Path "$name.sha256" -Value "$hash  $name" -Encoding ascii
+
+      - name: Create release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $name = "Foldspace-$env:VERSION-win-x64.exe"
+          gh release create "v$env:VERSION" $name "$name.sha256" --target $env:GITHUB_SHA --title "Foldspace $env:VERSION" --generate-notes

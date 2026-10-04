@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Foldspace.App/Foldspace.App.csproj" />
+    <Project Path="src/Foldspace.Core/Foldspace.Core.csproj" />
+    <Project Path="src/Foldspace.Localization/Foldspace.Localization.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Foldspace.Core.Tests/Foldspace.Core.Tests.csproj" />
+  </Folder>
+</Solution>

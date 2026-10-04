@@ -1,0 +1,16 @@
+# 建置產物
+bin/
+obj/
+publish/
+TestResults/
+.vs/
+*.user
+
+# 系統檔
+.DS_Store
+Thumbs.db
+
+# 只在作者電腦上使用，不公開：內網部署腳本、效能量測工具、QA 測試記錄
+build/
+bench/
+test-results/
