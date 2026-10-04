@@ -201,7 +201,9 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.4; font-weight: 600; }
 .step-no { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 3px; background: var(--accent); color: var(--accent-text); font-weight: 700; margin-bottom: 14px; }
 
 /* ---------- Screenshots ---------- */
-.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.shot-col { display: grid; gap: 20px; min-width: 0; }
+@media (max-width: 800px) { .shots { grid-template-columns: 1fr; } }
 .shot { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
 .shot img { display: block; margin: 0 auto 12px; border-radius: 3px; }
 .shot figcaption { text-align: center; color: var(--muted); font-size: 14.5px; }

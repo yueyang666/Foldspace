@@ -60,7 +60,7 @@
 
     "design.kicker": "Design highlights",
     "design.title": "Simple on the outside, careful on the inside",
-    "design.lead": "Foldspace does one thing, so every detail of it can be done right.",
+    "design.lead": "Foldspace does only a few things, and gets every detail right.",
     "d.a": "PC A",
     "d.b": "PC B",
     "d.udp": "UDP 52500 · discovery on the subnet",
