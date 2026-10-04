@@ -2,6 +2,8 @@
 
 [English](README.en.md) · [官方網站](https://yueyang666.github.io/Foldspace/)
 
+![把資料夾拖到桌面上的 Foldspace，檔案就出現在另一台電腦](docs/images/demo.zh-Hant.gif)
+
 在同一個區域網路裡的兩台 Windows 電腦之間傳檔案：把檔案或資料夾拖到桌面上的「Foldspace」，就會出現在另一台電腦的接收資料夾。
 
 - **像資料夾一樣用**：桌面上的「Foldspace」看起來就是一般資料夾，拖進去就傳送，資料夾結構完整保留。

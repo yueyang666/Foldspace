@@ -2,6 +2,8 @@
 
 [繁體中文](README.md) · [Website](https://yueyang666.github.io/Foldspace/)
 
+![Drag a folder onto Foldspace on the desktop and it shows up on the other PC](docs/images/demo.en.gif)
+
 Send files between two Windows PCs on the same local network: drag a file or folder onto "Foldspace" on your desktop, and it shows up in the receive folder on the other PC.
 
 - **Works like a folder**: "Foldspace" on the desktop looks like an ordinary folder. Drop something on it to send it; folder structure is kept.
