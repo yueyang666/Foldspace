@@ -132,7 +132,7 @@
     "support.d": "Foldspace will always be free and open source. If you like it, your support helps make the Windows release more complete and more trustworthy, and brings Foldspace to more operating systems in the future.",
     "support.intro": "Your support makes the Windows release more complete and more trustworthy, and helps bring Foldspace to more operating systems. Thank you!",
     "nav.support.title": "Support Foldspace's development",
-    "support.btn": "Support on Ko-fi",
+    "support.btn": "Support me on Ko-fi",
     "support.open": "Can't see the payment form? Open it on Ko-fi ↗",
     "dl.verify.t": "Verify the download",
     "dl.verify.d": "Every release comes with a .sha256 file. Run this in PowerShell and compare the result with the value in the .sha256 file:",
@@ -191,6 +191,7 @@
     }
     renderRelease();
     loadScreenshots();
+    drawKofiWidget();
   }
 
   document.getElementById("lang-toggle")?.addEventListener("click", () => {
@@ -300,12 +301,24 @@
     if (next) showShot(next.dataset.shot, true);
   });
 
-  // ---------- Ko-fi: open the donation panel in a dialog; Ko-fi is only contacted after a click ----------
+  // ---------- Ko-fi button in the download section, drawn by Ko-fi's Widget_2.js ----------
+  function drawKofiWidget() {
+    const box = document.querySelector(".kofi-widget");
+    if (!box || typeof kofiwidget2 === "undefined") return;
+    kofiwidget2.init(lang === "en" ? EN["support.btn"] : "在 Ko-fi 支持我", "#72a4f2", "R0V52861LJ");
+    // getHTML instead of draw(): draw() uses document.writeln, which only works while the page is loading.
+    box.innerHTML = kofiwidget2.getHTML();
+  }
+
+  // ---------- Ko-fi: open the donation panel in a dialog; the panel itself only loads after a click ----------
   const KOFI_EMBED = "https://ko-fi.com/yueyang666/?hidefeed=true&widget=true&embed=true";
   const kofiDialog = document.getElementById("kofi-dialog");
   if (kofiDialog && typeof kofiDialog.showModal === "function") {
     const frame = kofiDialog.querySelector(".kofi-frame");
-    $$(".js-kofi").forEach((a) => a.addEventListener("click", (e) => {
+    // Delegated, because the Ko-fi widget button is redrawn on every language switch.
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest(".js-kofi, .kofi-button");
+      if (!a) return;
       // Let modified clicks (new tab/window) behave like a normal link.
       if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       // Ko-fi's panel needs about 440px; on phones open the Ko-fi page itself.
@@ -313,7 +326,7 @@
       e.preventDefault();
       if (!frame.src) frame.src = KOFI_EMBED;
       kofiDialog.showModal();
-    }));
+    });
     kofiDialog.querySelector("[data-close]").addEventListener("click", () => kofiDialog.close());
     // Clicking the backdrop closes the dialog.
     kofiDialog.addEventListener("click", (e) => { if (e.target === kofiDialog) kofiDialog.close(); });

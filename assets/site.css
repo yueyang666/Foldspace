@@ -292,7 +292,13 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.4; font-weight: 600; }
 .support h3 { margin: 0 0 2px; }
 .support p { margin: 0; color: var(--muted); }
 .support .btn { flex: none; }
-@media (max-width: 600px) { .support { flex-wrap: wrap; } .support .btn { width: 100%; justify-content: center; } }
+.support .kofi-widget { flex: none; }
+@media (max-width: 600px) {
+  .support { flex-wrap: wrap; }
+  .support-body { flex-basis: calc(100% - 44px); }
+  .support .kofi-widget { width: 100%; text-align: center; }
+  .support .btn { width: 100%; justify-content: center; }
+}
 .verify, .privacy { margin: 0 0 16px; padding: 20px 22px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
 .verify p, .privacy p { margin: 0 0 12px; color: var(--muted); }
 .privacy p { margin: 0; }
