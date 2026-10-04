@@ -333,3 +333,22 @@ pre { margin: 0; padding: 12px 16px; border-radius: 3px; background: #0C0C0C; co
 .kofi-foot a { color: var(--accent); text-decoration: none; }
 .kofi-foot a:hover { text-decoration: underline; }
 @media (prefers-color-scheme: dark) { .kofi-bar > svg { color: #FF6B9A; } }
+
+/* ---------- Comparison ---------- */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.cmp-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.cmp-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cmp { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px; }
+.cmp th, .cmp td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp thead th { font-size: 14px; font-weight: 600; color: var(--muted); background: var(--surface-2); white-space: nowrap; }
+.cmp tbody th { width: 150px; font-weight: 600; color: var(--muted); font-size: 14px; }
+.cmp td { color: var(--text); }
+.cmp .me { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.cmp thead .me { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface-2)); }
+.cmp td.me { font-weight: 600; }
+.cmp-alt { margin-top: 24px; padding: 20px 22px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.cmp-alt h3 { margin: 0 0 8px; }
+.cmp-alt ul { margin: 0; padding-left: 20px; color: var(--muted); }
+.cmp-alt li + li { margin-top: 4px; }
+@media (max-width: 600px) { .cmp tbody th { position: sticky; left: 0; background: var(--surface); z-index: 1; } }
